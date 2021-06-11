@@ -1,39 +1,31 @@
-import { Tabs } from './components/Tabs';
+import { useState } from 'react';
+import { ThemeProvider } from 'styled-components';
+import { Auth } from './components/Auth';
+import { Modal } from './components/Modal';
 
-const normilizeObject = (obj) => ({
-  entries: obj,
-  keys: Object.keys(obj),
-})
+const theme = {
+  primaryColor: '#333',
+  bgColor: '#eee',
+};
 
 export function App() {
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
-  const tabs = normilizeObject({
-    login: {
-      title: 'Login',
-      content: <div>Please, Login</div>,
-    },
-    signin: {
-      title: 'Sign In',
-      content: <div>Please, Sign Up!</div>,
-    },
-  });
-
+  const handleToggleModal = () => setIsModalVisible(!isModalVisible)
   return (
-    <div>
-      <Tabs
-        renderLayout={(nav, content) => (
-          <div>
-            <div style={{ border: '1px solid red' }}>
-              {nav}
-            </div>
-            <div style={{ border: '1px solid blue' }}>
-              {content}
-            </div>
-          </div>
-        )}
-        navItemComponent={(props) => <li {...props} style={{ border: '1px solid' }} />}
-        tabs={tabs}
-      />
-    </div>
+    <ThemeProvider theme={theme}>
+      <button onClick={handleToggleModal}>
+        Open Modal
+      </button>
+      {
+        isModalVisible && (
+          <Modal
+            handleClose={handleToggleModal}
+          >
+            <Auth />
+          </Modal>
+        )
+      }
+    </ThemeProvider>
   );
 };

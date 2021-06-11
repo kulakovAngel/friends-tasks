@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState } from 'react';
 
 export function Tabs({tabs, renderLayout, navItemComponent}) {
     const [activeKey, setActiveKey] = useState(tabs.keys[0]);
@@ -31,4 +31,4 @@ function NavItem({children, onClick, id, navItemComponent: NavItem}) {
             {children}
         </NavItem>
     )
-}
+};
