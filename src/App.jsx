@@ -5,7 +5,7 @@ import { Modal } from './components/Modal';
 
 const theme = {
   primaryColor: '#333',
-  bgColor: '#eee',
+  bgColor: '#fefefe',
 };
 
 export function App() {

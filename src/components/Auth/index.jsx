@@ -3,6 +3,13 @@ import { normalizeObject } from '../../utills/normalize-object';
 import { LogIn } from './LogIn';
 import { SignUp } from './SignUp';
 
+import { SWrapRow } from '../../Styled/flex-wrappers/SWrapRow';
+import { STabsNavCol } from '../../Styled/Tabs/STabsNavCol';
+import { SWrapCol } from '../../Styled/flex-wrappers/SWrapCol';
+import { STabsNavRow } from '../../Styled/Tabs/STabsNavRow';
+import { STabsContentArea } from '../../Styled/Tabs/STabsContentArea';
+import { STabNavLi } from '../../Styled/Tabs/STabNavLi';
+
 export function Auth() {
 
     const tabs = normalizeObject({
@@ -19,16 +26,26 @@ export function Auth() {
     return(
         <Tabs
             renderLayout={(nav, content) => (
-                <div>
-                  <div style={{ border: '1px solid red' }}>
-                    {nav}
-                  </div>
-                  <div style={{ border: '1px solid blue' }}>
-                    {content}
-                  </div>
-                </div>
+              // вертикальные табы                 
+              <SWrapCol>
+                <STabsNavRow>
+                  {nav}
+                </STabsNavRow>
+                <STabsContentArea>
+                  {content}
+                </STabsContentArea>
+              </SWrapCol>
+              /* // горизонтальные табы                 
+              <SWrapRow>
+                <STabsNavCol>
+                  {nav}
+                </STabsNavCol>
+                <STabsContentArea>
+                  {content}
+                </STabsContentArea>
+              </SWrapRow> */
             )}
-            navItemComponent={(props) => <li {...props} style={{ border: '1px solid' }} />}
+            navItemComponent={(props) => <STabNavLi {...props} />}
             tabs={tabs}
         />
     )
