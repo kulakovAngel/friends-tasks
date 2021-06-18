@@ -17,7 +17,7 @@ export function Tabs({tabs, renderLayout, navItemComponent}) {
             )),
             tabs.entries[activeKey].content,
         )
-    )
+    );
 };
 
 function NavItem({children, onClick, id, navItemComponent: NavItem}) {
@@ -30,5 +30,5 @@ function NavItem({children, onClick, id, navItemComponent: NavItem}) {
         >
             {children}
         </NavItem>
-    )
+    );
 };

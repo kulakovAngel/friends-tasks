@@ -27,15 +27,15 @@ export function Auth() {
         <Tabs
             renderLayout={(nav, content) => (
               // вертикальные табы                 
-              <SWrapCol>
-                <STabsNavRow>
-                  {nav}
-                </STabsNavRow>
-                <STabsContentArea>
-                  {content}
-                </STabsContentArea>
-              </SWrapCol>
-              /* // горизонтальные табы                 
+              // <SWrapCol>
+              //   <STabsNavRow>
+              //     {nav}
+              //   </STabsNavRow>
+              //   <STabsContentArea>
+              //     {content}
+              //   </STabsContentArea>
+              // </SWrapCol>
+               // горизонтальные табы                 
               <SWrapRow>
                 <STabsNavCol>
                   {nav}
@@ -43,7 +43,7 @@ export function Auth() {
                 <STabsContentArea>
                   {content}
                 </STabsContentArea>
-              </SWrapRow> */
+              </SWrapRow>
             )}
             navItemComponent={(props) => <STabNavLi {...props} />}
             tabs={tabs}

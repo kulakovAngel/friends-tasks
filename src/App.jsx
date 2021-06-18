@@ -24,14 +24,6 @@ export function App() {
       {
         isModalVisible && (
           <Modal
-            renderLayout={(children, handleClose) => (
-              <SModalRoot>
-                <SModalWindow>
-                  <SCloseButton onClick={handleClose}>x</SCloseButton>
-                  {children}
-                </SModalWindow>
-              </SModalRoot>
-            )}
             handleClose={handleToggleModal}
           >
             <Auth />
