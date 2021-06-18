@@ -27,12 +27,12 @@ export function SignUp() {
     return (
         <form onSubmit={handleSubmit}>
             <SWrapCol>
-                <SLabel for="uname">Username</SLabel>
+                <SLabel htmlFor="uname">Username</SLabel>
                 <SInput id="uname" type={'text'} name={'username'} onChange={handleChangeInput} value={authData.username} />
-                <SLabel for="pass">Password</SLabel>
-                <SInput id="pass" type={'text'} name={'password'} onChange={handleChangeInput} value={authData.password} />
-                <SLabel for="cpass">Confirm password</SLabel>
-                <SInput id="cpass" type={'text'} name={'confirmPasword'} onChange={handleChangeInput} value={authData.confirmPasword} />
+                <SLabel htmlFor="pass">Password</SLabel>
+                <SInput id="pass" type={'password'} name={'password'} onChange={handleChangeInput} value={authData.password} />
+                <SLabel htmlFor="cpass">Confirm password</SLabel>
+                <SInput id="cpass" type={'password'} name={'confirmPasword'} onChange={handleChangeInput} value={authData.confirmPasword} />
                 <SSubmitButton type={'submit'}>Sign Up</SSubmitButton>
             </SWrapCol>
         </form>
@@ -40,4 +40,7 @@ export function SignUp() {
 }
 
 SignUp.propTypes = {
+    name: PropTypes.string,
+    password: PropTypes.string,
+    confirmPasword: PropTypes.string,
 };

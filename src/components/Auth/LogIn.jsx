@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 
 import { SWrapCol } from '../../Styled/flex-wrappers/SWrapCol';
@@ -25,12 +26,17 @@ export function LogIn() {
     return (
         <form onSubmit={handleSubmit}>
             <SWrapCol>
-                <SLabel for="uname">Username</SLabel>
+                <SLabel htmlFor="uname">Username</SLabel>
                 <SInput id="uname" type={'text'} name={'username'} onChange={handleChangeInput} value={authData.username} />
-                <SLabel for="pass">Password</SLabel>
+                <SLabel htmlFor="pass">Password</SLabel>
                 <SInput id="pass" type={'password'} name={'password'} onChange={handleChangeInput} value={authData.password} />
                 <SSubmitButton type={'submit'}>Log In</SSubmitButton>
             </SWrapCol>
         </form>
     )
 }
+
+LogIn.propTypes = {
+    name: PropTypes.string,
+    password: PropTypes.string,
+};
