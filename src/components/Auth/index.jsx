@@ -26,24 +26,24 @@ export function Auth() {
     return(
         <Tabs
             renderLayout={(nav, content) => (
-              // вертикальные табы                 
-              // <SWrapCol>
-              //   <STabsNavRow>
-              //     {nav}
-              //   </STabsNavRow>
-              //   <STabsContentArea>
-              //     {content}
-              //   </STabsContentArea>
-              // </SWrapCol>
-               // горизонтальные табы                 
-              <SWrapRow>
-                <STabsNavCol>
+              //вертикальные табы                 
+              <SWrapCol>
+                <STabsNavRow>
                   {nav}
-                </STabsNavCol>
+                </STabsNavRow>
                 <STabsContentArea>
                   {content}
                 </STabsContentArea>
-              </SWrapRow>
+              </SWrapCol>
+              //горизонтальные табы                 
+              // <SWrapRow>
+              //   <STabsNavCol>
+              //     {nav}
+              //   </STabsNavCol>
+              //   <STabsContentArea>
+              //     {content}
+              //   </STabsContentArea>
+              // </SWrapRow>
             )}
             navItemComponent={(props) => <STabNavLi {...props} />}
             tabs={tabs}
