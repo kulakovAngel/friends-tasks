@@ -1,3 +1,4 @@
+import { Field } from 'formik';
 import PropTypes from 'prop-types';
 import * as Yup from 'yup';
 
@@ -51,7 +52,8 @@ export function SignUp() {
                 <SWrapCol>
                     <SFormItemCol>
                         <SLabel htmlFor="uname">Username</SLabel>
-                        <SInput 
+                        <SInput
+                            as={Field}
                             id="uname"
                             type={'text'}
                             name={'username'}
@@ -64,7 +66,8 @@ export function SignUp() {
                     </SFormItemCol>
                     <SFormItemCol>
                         <SLabel htmlFor="pass">Password</SLabel>
-                        <SInput 
+                        <SInput
+                            as={Field}
                             id="pass"
                             type={'password'}
                             name={'password'}
@@ -78,6 +81,7 @@ export function SignUp() {
                     <SFormItemCol>
                     <SLabel htmlFor="cpass">Confirm password</SLabel>
                         <SInput
+                            as={Field}
                             id="cpass"
                             type={'password'}
                             name={'confirmPasword'}
