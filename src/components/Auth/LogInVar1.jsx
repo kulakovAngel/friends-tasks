@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
-import { useAuth } from './hooks/useAuth';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 import { Field } from 'formik';
 import * as Yup from 'yup';
 
@@ -10,6 +11,7 @@ import { SInput } from '../../Styled/forms/SInput';
 import { SLabel } from '../../Styled/forms/SLabel';
 import { SPrompt2 } from '../../Styled/forms/SPrompt';
 import { SSubmitButton } from '../../Styled/forms/SSubmitButton';
+import { loginSuccess } from './redux/actionsCreators';
 
 const logInSchema = Yup.object().shape({
     username: Yup.string()
@@ -25,19 +27,13 @@ const logInSchema = Yup.object().shape({
         // ),
 });
 
-export const LogIn = ({resStatus}) => {
-    //const auth = useSelector((state) => state.auth);
-    //const dispatch = useDispatch();
-
-    const [auth, dispatchUsers] = useAuth();
+const LogIn = ({loginSuccess, users}) => {
 
     const handleSubmit = (authData) => {
-        dispatchUsers(authData.username, authData.password);
-    }
+        loginSuccess('hello');
 
-    useEffect(() => {
-        console.log(auth);
-    }, [auth]);
+        console.log(users);
+    }
 
     return (
         <BaseForm
@@ -59,7 +55,7 @@ export const LogIn = ({resStatus}) => {
                 status,
             }) => (
                 <SWrapCol>
-                    {resStatus}
+                    {/* {resStatus} */}
                     <SLabel htmlFor="uname">Username</SLabel>
                     <SInput
                         as={Field}
@@ -100,3 +96,18 @@ LogIn.propTypes = {
     name: PropTypes.string,
     password: PropTypes.string,
 };
+
+// mapStateToProps берет состояние users из store и передает его как props в компонент LogIn
+const mapStateToProps = (state) => ({
+    users: state.users,
+});
+
+// mapDispatchToProps передает action или actionCreators как props в компонент Login
+// если mapDispatchToProps не определен, то в компонент LogIn передастся стандартный метод dispatch()
+const mapDispatchToProps = {
+    loginSuccess: loginSuccess,
+};
+
+const ConnectedToStoreLogIn = connect(mapStateToProps, mapDispatchToProps)(LogIn);
+
+export { ConnectedToStoreLogIn as LogIn };

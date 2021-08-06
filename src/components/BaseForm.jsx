@@ -3,7 +3,7 @@ import { Formik, Form } from 'formik';
 
 export function BaseForm({renderForm, formikData}) {
     const handleSubmit = (...args) => {
-        console.log(args[0]);
+        //console.log(args[0]);
         return formikData.onSubmit.call(null, ...args);
     }
     const afterSubmitPhrase = 'Loading';

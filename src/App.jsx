@@ -5,9 +5,9 @@ import { Modal } from './components/Modal';
 import { GlobalStyle } from './Styled/global/globalStyles';
 import { theme } from './Styled/global/theme';
 
-import { SModalRoot } from './Styled/Modals/SModalRoot';
-import { SModalWindow } from './Styled/Modals/SModalWindow';
-import { SCloseButton } from './Styled/Modals/SCloseButton';
+// import { SModalRoot } from './Styled/Modals/SModalRoot';
+// import { SModalWindow } from './Styled/Modals/SModalWindow';
+// import { SCloseButton } from './Styled/Modals/SCloseButton';
 
 export function App() {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -30,4 +30,4 @@ export function App() {
       }
     </ThemeProvider>
   );
-};
+}; 
